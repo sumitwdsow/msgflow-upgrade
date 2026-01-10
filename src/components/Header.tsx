@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare, Zap } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,17 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
+            {/* Bolt Marketing Special Link */}
+            <Link
+              to="/bolt-marketing"
+              className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${
+                isScrolled ? "text-foreground" : "text-white/90"
+              }`}
+            >
+              <Zap className="w-4 h-4 text-primary" />
+              Bolt Marketing
+            </Link>
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -99,6 +109,15 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-background border-t border-border">
             <nav className="flex flex-col py-4">
+              {/* Bolt Marketing Mobile */}
+              <Link
+                to="/bolt-marketing"
+                className="flex items-center gap-2 px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Zap className="w-4 h-4 text-primary" />
+                Bolt Marketing
+              </Link>
               {navLinks.map((link) => (
                 <a
                   key={link.href}
