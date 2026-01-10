@@ -102,7 +102,7 @@ const Documentation = () => {
             <Button variant="ghost" className="text-background/70 hover:text-background hover:bg-background/10" asChild>
               <Link to="/">Back to Home</Link>
             </Button>
-            <Button className="bg-primary hover:bg-primary/90" asChild>
+            <Button className="bg-primary hover:bg-primary/90 text-white" asChild>
               <a href="https://msgflow.in/login" target="_blank" rel="noopener noreferrer">
                 Get API Key
                 <ExternalLink className="w-4 h-4 ml-2" />
