@@ -7,7 +7,6 @@ const Footer = () => {
 
   const productLinks = [
     { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "FAQ", href: "#faq" },
     { label: "Bolt Marketing", href: "/bolt-marketing", isRoute: true },
@@ -15,9 +14,10 @@ const Footer = () => {
 
   const companyLinks = [
     { label: "Contact", href: "#contact" },
-    { label: "Privacy Policy", href: "https://msgflow.in/privacy", external: true },
-    { label: "Terms of Service", href: "https://msgflow.in/terms", external: true },
-    { label: "Documentation", href: "https://msgflow.in/docs", external: true },
+    { label: "Privacy Policy", href: "/privacy", isRoute: true },
+    { label: "Terms of Service", href: "/terms", isRoute: true },
+    { label: "Documentation", href: "/documentation", isRoute: true },
+    { label: "Changelog", href: "/changelog", isRoute: true },
   ];
 
   return (
@@ -128,17 +128,22 @@ const Footer = () => {
             <ul className="space-y-4">
               {companyLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-background/70 hover:text-primary transition-colors flex items-center gap-1 group"
-                  >
-                    {link.label}
-                    {link.external && (
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      className="text-background/70 hover:text-primary transition-colors flex items-center gap-1 group"
+                    >
+                      {link.label}
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    )}
-                  </a>
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-background/70 hover:text-primary transition-colors flex items-center gap-1 group"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
