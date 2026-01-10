@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageSquare, Mail, Lock, ArrowRight, Eye, EyeOff } from "lucide-react";
+import { MessageSquare, Mail, Lock, ArrowRight, Eye, EyeOff, Shield, Zap, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -11,20 +12,41 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Demo only - redirect to external login
     window.location.href = "https://msgflow.in/login";
   };
+
+  const features = [
+    { icon: Users, value: "500+", label: "Active Businesses" },
+    { icon: Zap, value: "5M+", label: "Messages Sent" },
+    { icon: Shield, value: "99.9%", label: "Uptime" },
+  ];
 
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Form */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-background">
-        <div className="w-full max-w-md">
+      <div className="flex-1 flex items-center justify-center p-8 bg-background relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-md relative z-10"
+        >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <MessageSquare className="w-5 h-5 text-primary-foreground" />
-            </div>
+          <Link to="/" className="flex items-center gap-2 mb-8 group">
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
+            >
+              <MessageSquare className="w-6 h-6 text-white" />
+            </motion.div>
             <div>
               <span className="font-display font-bold text-xl text-foreground">
                 MsgFlow
@@ -37,34 +59,52 @@ const Login = () => {
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="font-display text-3xl font-bold text-foreground mb-2">
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              className="font-display text-3xl font-bold text-foreground mb-2"
+            >
               Welcome back
-            </h1>
-            <p className="text-muted-foreground">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground"
+            >
               Sign in to your account to continue
-            </p>
+            </motion.p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
               <label className="block text-sm font-medium text-foreground mb-2">
                 Email
               </label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <div className="relative group">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
                 <Input
                   type="email"
                   placeholder="you@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 pl-12"
+                  className="h-14 pl-12 rounded-xl border-border focus:border-primary transition-colors"
                   required
                 />
               </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium text-foreground">
                   Password
@@ -76,33 +116,39 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <div className="relative group">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-12 pl-12 pr-12"
+                  className="h-14 pl-12 pr-12 rounded-xl border-border focus:border-primary transition-colors"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
-            </div>
+            </motion.div>
 
-            <Button
-              type="submit"
-              className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
             >
-              Sign In
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+              <Button
+                type="submit"
+                className="w-full h-14 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white text-base font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                Sign In
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
           </form>
 
           {/* Divider */}
@@ -118,8 +164,13 @@ const Login = () => {
           </div>
 
           {/* Social Login */}
-          <div className="grid grid-cols-2 gap-4">
-            <Button variant="outline" className="h-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="grid grid-cols-2 gap-4"
+          >
+            <Button variant="outline" className="h-14 rounded-xl hover:border-primary/50 transition-colors">
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -140,47 +191,113 @@ const Login = () => {
               </svg>
               Google
             </Button>
-            <Button variant="outline" className="h-12">
+            <Button variant="outline" className="h-14 rounded-xl hover:border-primary/50 transition-colors">
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
               GitHub
             </Button>
-          </div>
+          </motion.div>
 
           {/* Sign Up Link */}
-          <p className="mt-8 text-center text-muted-foreground">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="mt-8 text-center text-muted-foreground"
+          >
             Don't have an account?{" "}
             <Link to="/signup" className="text-primary font-medium hover:underline">
               Sign up for free
             </Link>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Right Side - Visual */}
       <div className="hidden lg:flex flex-1 hero-gradient items-center justify-center p-12 relative overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+            className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          />
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute inset-0">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 4 + i,
+                repeat: Infinity,
+                delay: i * 0.5,
+              }}
+              className="absolute w-2 h-2 bg-primary/40 rounded-full"
+              style={{
+                left: `${20 + i * 15}%`,
+                top: `${30 + (i % 3) * 20}%`,
+              }}
+            />
+          ))}
         </div>
 
         <div className="relative z-10 text-center max-w-lg">
-          <div className="glass-card rounded-2xl p-8 mb-8">
-            <div className="text-6xl font-display font-bold text-gradient mb-4">
-              500+
-            </div>
-            <p className="text-white/70">Businesses trust MsgFlow</p>
-          </div>
+          {/* Stats Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-3 gap-4 mb-12"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5, scale: 1.05 }}
+                className="glass-card rounded-2xl p-4"
+              >
+                <feature.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                <div className="text-2xl font-bold text-white">{feature.value}</div>
+                <div className="text-xs text-white/60">{feature.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          <h2 className="font-display text-3xl font-bold text-white mb-4">
+          {/* Main Content */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="font-display text-3xl font-bold text-white mb-4"
+          >
             Scale your WhatsApp marketing
-          </h2>
-          <p className="text-white/70">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-white/70 text-lg"
+          >
             Join hundreds of businesses using MsgFlow to send millions of 
             messages and grow their customer engagement.
-          </p>
+          </motion.p>
         </div>
       </div>
     </div>
