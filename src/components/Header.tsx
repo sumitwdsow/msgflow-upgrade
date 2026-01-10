@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageSquare } from "lucide-react";
 
@@ -70,14 +71,14 @@ const Header = () => {
               className={isScrolled ? "text-foreground" : "text-white hover:bg-white/10"}
               asChild
             >
-              <a href="https://msgflow.in/login" target="_blank" rel="noopener noreferrer">
+              <Link to="/login">
                 Login
-              </a>
+              </Link>
             </Button>
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-              <a href="https://msgflow.in/register" target="_blank" rel="noopener noreferrer">
+              <Link to="/signup">
                 Start Free Trial
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -110,14 +111,14 @@ const Header = () => {
               ))}
               <div className="flex flex-col gap-2 px-4 pt-4 border-t border-border mt-4">
                 <Button variant="outline" asChild>
-                  <a href="https://msgflow.in/login" target="_blank" rel="noopener noreferrer">
+                  <Link to="/login">
                     Login
-                  </a>
+                  </Link>
                 </Button>
                 <Button className="bg-primary text-primary-foreground" asChild>
-                  <a href="https://msgflow.in/register" target="_blank" rel="noopener noreferrer">
+                  <Link to="/signup">
                     Start Free Trial
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </nav>
