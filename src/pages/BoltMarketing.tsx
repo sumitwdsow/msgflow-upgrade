@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { 
   Zap, 
   MessageSquare, 
@@ -12,11 +14,7 @@ import {
   Send, 
   BarChart3,
   Users,
-  Clock,
-  Shield,
-  Target,
-  Sparkles,
-  ChevronRight
+  Clock
 } from "lucide-react";
 
 const BoltMarketing = () => {
@@ -67,27 +65,7 @@ const BoltMarketing = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container-custom">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">MsgFlow</span>
-            </Link>
-            <div className="flex items-center gap-3">
-              <Button variant="ghost" asChild>
-                <Link to="/">Home</Link>
-              </Button>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-                <Link to="/signup">Get Started</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section with Epic Animation */}
       <section className="relative min-h-screen hero-gradient pt-20 overflow-hidden">
@@ -555,14 +533,7 @@ const BoltMarketing = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground py-8">
-        <div className="container-custom text-center">
-          <p className="text-background/60 text-sm">
-            © {new Date().getFullYear()} MsgFlow by We Digital Services. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
