@@ -22,7 +22,6 @@ const Signup = () => {
   };
 
   const features = [
-    { icon: CheckCircle, text: "Free 500 messages to get started" },
     { icon: CheckCircle, text: "No credit card required" },
     { icon: CheckCircle, text: "Setup in under 5 minutes" },
     { icon: CheckCircle, text: "24/7 customer support" },
