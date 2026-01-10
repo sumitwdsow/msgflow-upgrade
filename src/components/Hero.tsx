@@ -283,7 +283,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Animated Dashboard Preview */}
+          {/* Right Content - WhatsApp Chat UI */}
           <motion.div 
             className="relative lg:pl-8"
             initial={{ opacity: 0, x: 100 }}
@@ -303,169 +303,258 @@ const Hero = () => {
                   animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
-                <span className="text-sm font-medium text-foreground">Live</span>
+                <span className="text-sm font-medium text-foreground">Live Campaign</span>
               </motion.div>
 
-              {/* Main Dashboard Card */}
+              {/* WhatsApp Phone Mockup */}
               <motion.div 
-                className="glass-card rounded-2xl p-6"
-                animate={{ y: [0, -10, 0] }}
+                className="relative bg-[#111B21] rounded-[2.5rem] p-2 shadow-2xl border border-white/10"
+                animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* Window Controls */}
-                <div className="flex items-center gap-2 mb-6">
-                  {['bg-red-500', 'bg-yellow-500', 'bg-green-500'].map((color, i) => (
+                {/* Phone Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#111B21] rounded-b-2xl z-10" />
+                
+                {/* Screen */}
+                <div className="bg-[#0B141A] rounded-[2rem] overflow-hidden">
+                  {/* WhatsApp Header */}
+                  <div className="bg-[#202C33] px-4 py-3 flex items-center gap-3">
                     <motion.div 
-                      key={i}
-                      className={`w-3 h-3 rounded-full ${color}`}
+                      className="w-10 h-10 rounded-full bg-primary flex items-center justify-center"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ delay: 0.8 + i * 0.1 }}
-                    />
-                  ))}
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {[
-                    { value: "10K+", label: "Messages/Min" },
-                    { value: "99.9%", label: "Delivery" }
-                  ].map((stat, i) => (
-                    <motion.div 
-                      key={i}
-                      className="bg-white/5 rounded-xl p-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1 + i * 0.2 }}
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
+                      transition={{ delay: 0.8, type: "spring" }}
                     >
-                      <motion.div 
-                        className="text-2xl font-bold text-white"
+                      <span className="text-white font-bold text-sm">M</span>
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <motion.span 
+                          className="text-white font-semibold text-sm"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.9 }}
+                        >
+                          MsgFlow Business
+                        </motion.span>
+                        {/* Blue Verified Tick */}
+                        <motion.div
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ delay: 1.1, type: "spring" }}
+                        >
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#00A3FF"/>
+                            <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </motion.div>
+                      </div>
+                      <motion.span 
+                        className="text-[#8696A0] text-xs"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 1.3 + i * 0.2 }}
+                        transition={{ delay: 1 }}
                       >
-                        {stat.value}
-                      </motion.div>
-                      <div className="text-sm text-white/60">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Bolt Marketing Feature */}
-                <motion.div 
-                  className="bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl p-4 border border-primary/30 mb-4 relative overflow-hidden"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 }}
-                >
-                  {/* Shimmer effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '200%' }}
-                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-                  />
-                  
-                  <div className="flex items-center gap-2 mb-3 relative z-10">
-                    <motion.div
-                      animate={{ rotate: [0, 15, -15, 0] }}
-                      transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
-                    >
-                      <Zap className="w-5 h-5 text-primary" />
-                    </motion.div>
-                    <span className="font-semibold text-white">Bolt Marketing</span>
+                        Online • Sending messages...
+                      </motion.span>
+                    </div>
+                    <div className="flex items-center gap-4 text-[#AEBAC1]">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"/>
+                      </svg>
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"/>
+                      </svg>
+                    </div>
                   </div>
-                  <div className="space-y-2 text-sm relative z-10">
-                    {[
-                      { icon: Zap, text: "Lightning fast delivery" },
-                      { icon: BarChart3, text: "Real-time analytics" },
-                      { icon: CheckCircle, text: "Instant confirmation" }
-                    ].map((item, i) => (
-                      <motion.div 
-                        key={i}
-                        className="flex items-center gap-2 text-white/80"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.4 + i * 0.1 }}
+
+                  {/* Chat Background */}
+                  <div className="h-[320px] bg-[#0B141A] relative overflow-hidden px-3 py-4">
+                    {/* WhatsApp Pattern */}
+                    <div className="absolute inset-0 opacity-5" style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                    }} />
+
+                    {/* Messages */}
+                    <div className="relative z-10 space-y-3">
+                      {/* Incoming Message 1 */}
+                      <motion.div
+                        className="flex justify-start"
+                        initial={{ opacity: 0, x: -50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ delay: 1.3 }}
                       >
-                        <item.icon className="w-4 h-4 text-primary" />
-                        {item.text}
+                        <div className="bg-[#202C33] rounded-lg rounded-tl-none px-3 py-2 max-w-[80%] shadow-sm">
+                          <p className="text-white text-sm">🎉 Welcome to MsgFlow!</p>
+                          <p className="text-white/70 text-sm mt-1">Your WhatsApp marketing journey starts now.</p>
+                          <div className="flex items-center justify-end gap-1 mt-1">
+                            <span className="text-[10px] text-[#8696A0]">10:30 AM</span>
+                          </div>
+                        </div>
                       </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
 
-                {/* Animated Progress Bar */}
-                <div className="mb-4">
-                  <div className="flex justify-between text-sm text-white/60 mb-2">
-                    <span>Campaign Progress</span>
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.8 }}
-                    >
-                      1,000/1,000
-                    </motion.span>
+                      {/* Outgoing Message 1 */}
+                      <motion.div
+                        className="flex justify-end"
+                        initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ delay: 1.8 }}
+                      >
+                        <div className="bg-[#005C4B] rounded-lg rounded-tr-none px-3 py-2 max-w-[80%] shadow-sm">
+                          <p className="text-white text-sm">📢 Flash Sale Alert!</p>
+                          <p className="text-white/90 text-sm mt-1">Get 50% OFF on all products. Use code: MSGFLOW50</p>
+                          <div className="flex items-center justify-end gap-1 mt-1">
+                            <span className="text-[10px] text-[#8696A0]">10:31 AM</span>
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 2.3 }}
+                            >
+                              <svg className="w-4 h-4 text-[#53BDEB]" viewBox="0 0 16 11" fill="currentColor">
+                                <path d="M11.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.405-2.272a.463.463 0 0 0-.336-.136.475.475 0 0 0-.347.147.518.518 0 0 0 .003.7l2.734 2.585c.089.084.21.131.335.131.126 0 .249-.05.339-.138l6.533-8.055a.517.517 0 0 0-.018-.682z"/>
+                                <path d="M15.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.405-2.272a.463.463 0 0 0-.336-.136.475.475 0 0 0-.347.147.518.518 0 0 0 .003.7l2.734 2.585c.089.084.21.131.335.131.126 0 .249-.05.339-.138l6.533-8.055a.517.517 0 0 0-.018-.682z"/>
+                              </svg>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Outgoing Message 2 with Animation */}
+                      <motion.div
+                        className="flex justify-end"
+                        initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ delay: 2.8 }}
+                      >
+                        <div className="bg-[#005C4B] rounded-lg rounded-tr-none px-3 py-2 max-w-[80%] shadow-sm">
+                          <p className="text-white text-sm">⚡ Campaign sent to 1,000 users</p>
+                          <div className="flex items-center justify-end gap-1 mt-1">
+                            <span className="text-[10px] text-[#8696A0]">10:31 AM</span>
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 3.3 }}
+                            >
+                              <svg className="w-4 h-4 text-[#53BDEB]" viewBox="0 0 16 11" fill="currentColor">
+                                <path d="M11.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.405-2.272a.463.463 0 0 0-.336-.136.475.475 0 0 0-.347.147.518.518 0 0 0 .003.7l2.734 2.585c.089.084.21.131.335.131.126 0 .249-.05.339-.138l6.533-8.055a.517.517 0 0 0-.018-.682z"/>
+                                <path d="M15.071.653a.457.457 0 0 0-.304-.102.493.493 0 0 0-.381.178l-6.19 7.636-2.405-2.272a.463.463 0 0 0-.336-.136.475.475 0 0 0-.347.147.518.518 0 0 0 .003.7l2.734 2.585c.089.084.21.131.335.131.126 0 .249-.05.339-.138l6.533-8.055a.517.517 0 0 0-.018-.682z"/>
+                              </svg>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Typing Indicator */}
+                      <motion.div
+                        className="flex justify-start"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0, 1, 1, 0] }}
+                        transition={{ delay: 3.5, duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      >
+                        <div className="bg-[#202C33] rounded-lg rounded-tl-none px-4 py-3 shadow-sm">
+                          <div className="flex gap-1">
+                            <motion.div 
+                              className="w-2 h-2 bg-[#8696A0] rounded-full"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
+                            />
+                            <motion.div 
+                              className="w-2 h-2 bg-[#8696A0] rounded-full"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+                            />
+                            <motion.div 
+                              className="w-2 h-2 bg-[#8696A0] rounded-full"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
                   </div>
-                  <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+
+                  {/* WhatsApp Input Bar */}
+                  <div className="bg-[#202C33] px-3 py-2 flex items-center gap-2">
+                    <div className="text-[#8696A0]">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2A1 1 0 0 0 3.8 21.454l3.032-.892A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 0 1-4.075-1.114l-.285-.17-2.96.87.871-2.96-.17-.285A7.962 7.962 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1 bg-[#2A3942] rounded-full px-4 py-2 flex items-center">
+                      <span className="text-[#8696A0] text-sm">Type a message...</span>
+                    </div>
                     <motion.div 
-                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: '100%' }}
-                      transition={{ duration: 2, delay: 1.5, ease: "easeOut" }}
-                    />
+                      className="w-10 h-10 bg-primary rounded-full flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Send className="w-5 h-5 text-white" />
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Floating Success Card */}
+              {/* Floating Stats Cards */}
               <motion.div 
-                className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl z-10"
+                className="absolute -bottom-4 -left-8 bg-white rounded-xl p-3 shadow-xl z-10"
                 initial={{ scale: 0, rotate: -20 }}
                 animate={{ scale: 1, rotate: 0 }}
-                transition={{ type: "spring", delay: 1.5 }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", delay: 2 }}
+                whileHover={{ scale: 1.1 }}
               >
-                <div className="flex items-center gap-3">
-                  <motion.div 
-                    className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                  </motion.div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-primary" />
+                  </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Success Rate</div>
-                    <div className="text-xl font-bold text-foreground">99.9%</div>
+                    <div className="text-xs text-muted-foreground">Speed</div>
+                    <div className="text-sm font-bold text-foreground">10K/min</div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Floating Message Bubbles */}
-              {[
-                { x: -80, y: 60, delay: 2 },
-                { x: 320, y: 120, delay: 2.3 },
-                { x: 280, y: -20, delay: 2.6 },
-              ].map((pos, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute z-10"
-                  style={{ left: pos.x, top: pos.y }}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: pos.delay, type: "spring" }}
-                >
-                  <motion.div
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 flex items-center gap-2"
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                  >
-                    <MessageSquare className="w-4 h-4 text-primary" />
-                    <span className="text-white text-xs font-medium">Sent ✓</span>
-                  </motion.div>
-                </motion.div>
-              ))}
+              <motion.div 
+                className="absolute -top-2 -right-8 bg-white rounded-xl p-3 shadow-xl z-10"
+                initial={{ scale: 0, rotate: 20 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", delay: 2.3 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground">Delivered</div>
+                    <div className="text-sm font-bold text-foreground">99.9%</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Notification Popup */}
+              <motion.div 
+                className="absolute top-20 -left-12 bg-white rounded-xl p-3 shadow-xl z-10 max-w-[180px]"
+                initial={{ opacity: 0, x: -20, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ delay: 3.5 }}
+              >
+                <div className="flex items-start gap-2">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-xs">M</span>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs font-semibold text-foreground">MsgFlow</span>
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#00A3FF"/>
+                        <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">Campaign delivered! ✓✓</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
