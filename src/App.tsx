@@ -16,6 +16,12 @@ import SendMessage from "./pages/SendMessage";
 import MessageHistory from "./pages/MessageHistory";
 import Inbox from "./pages/Inbox";
 import Contacts from "./pages/Contacts";
+import BusinessProfile from "./pages/BusinessProfile";
+import SupportTickets from "./pages/SupportTickets";
+import Wallet from "./pages/Wallet";
+import TopUpWallet from "./pages/TopUpWallet";
+import Billing from "./pages/Billing";
+import Reports from "./pages/Reports";
 import Documentation from "./pages/Documentation";
 import Changelog from "./pages/Changelog";
 import Privacy from "./pages/Privacy";
@@ -44,6 +50,12 @@ const App = () => (
           <Route path="/message-history" element={<MessageHistory />} />
           <Route path="/inbox" element={<Inbox />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/business-profile" element={<BusinessProfile />} />
+          <Route path="/support-tickets" element={<SupportTickets />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/top-up-wallet" element={<TopUpWallet />} />
+          <Route path="/billing" element={<Billing />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/documentation" element={<Documentation />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/privacy" element={<Privacy />} />
