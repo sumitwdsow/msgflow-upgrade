@@ -136,7 +136,7 @@ const Hero = () => {
               <img 
                 src={metaPartnerLogo} 
                 alt="Official Meta Business Partner" 
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
             </motion.div>
 
