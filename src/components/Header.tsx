@@ -59,7 +59,7 @@ const Header = () => {
           <nav className="hidden lg:flex items-center gap-1">
             {/* Bolt Marketing Special Link */}
             <Link
-              to="/bolt-marketing"
+              to="/bolt-marketing-dashboard"
               className={`relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-all rounded-lg group ${
                 isScrolled 
                   ? "text-foreground hover:bg-primary/10" 
@@ -142,7 +142,7 @@ const Header = () => {
               <nav className="flex flex-col py-4">
                 {/* Bolt Marketing Mobile */}
                 <Link
-                  to="/bolt-marketing"
+                  to="/bolt-marketing-dashboard"
                   className="flex items-center gap-2 px-4 py-3 text-foreground hover:bg-muted transition-colors mx-2 rounded-xl"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

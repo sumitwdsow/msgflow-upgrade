@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Shield, Zap, Globe, ArrowUpRight, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import metaPartnerLogo from "@/assets/meta-partner.avif";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ const Footer = () => {
     { label: "How It Works", href: "https://msgflow.in/#how-it-works", isExternal: true },
     { label: "FAQ", href: "https://msgflow.in/#faq", isExternal: true },
     { label: "Pricing", href: "https://msgflow.in/pricing", isExternal: true },
-    { label: "Bolt Marketing", href: "/bolt-marketing", isRoute: true },
+    { label: "Bolt Marketing", href: "/bolt-marketing-dashboard", isRoute: true },
   ];
 
   const companyLinks = [
@@ -162,30 +163,13 @@ const Footer = () => {
             </p>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 bg-white px-5 py-3 rounded-xl shadow-lg"
+              className="flex items-center gap-3"
             >
-              {/* Official Meta Infinity Logo */}
-              <svg 
-                viewBox="0 0 100 100" 
-                className="w-10 h-10"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="metaGradientFooter" x1="0%" y1="50%" x2="100%" y2="50%">
-                    <stop offset="0%" stopColor="#0064E0" />
-                    <stop offset="50%" stopColor="#0064E0" />
-                    <stop offset="100%" stopColor="#0AC7F5" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M22.3 66.8c-5.1-7-8.4-15.4-8.4-22.6 0-11.3 5.9-19 14.4-19 5.6 0 10.4 3.8 15.3 11.2l3.4 5.2 3.4-5.2c4.9-7.4 9.7-11.2 15.3-11.2 8.5 0 14.4 7.7 14.4 19 0 7.2-3.3 15.6-8.4 22.6-5.7 7.8-13.1 13.6-21.3 13.6-8.2 0-15.6-5.8-21.3-13.6h-6.8zm24.7-8.4c3.3 5.1 6.3 8 10 8 5.2 0 10.2-4.5 14.3-10.1 3.8-5.2 6.2-11.2 6.2-16.1 0-6.6-3.1-10.8-7.8-10.8-3.7 0-6.7 2.9-10 8l-6.3 9.5-6.4-9.5c-3.3-5.1-6.3-8-10-8-4.7 0-7.8 4.2-7.8 10.8 0 4.9 2.4 10.9 6.2 16.1 4.1 5.6 9.1 10.1 14.3 10.1 3.7 0 6.7-2.9 10-8l-6.4-9.5-6.3 9.5z"
-                  fill="url(#metaGradientFooter)"
-                />
-              </svg>
-              <div className="flex flex-col">
-                <span className="text-xs text-gray-500 font-medium">Official</span>
-                <span className="text-base font-bold text-gray-900">Meta Partner</span>
-              </div>
+              <img 
+                src={metaPartnerLogo} 
+                alt="Official Meta Business Partner" 
+                className="h-14 w-auto object-contain"
+              />
             </motion.div>
           </div>
         </motion.div>
