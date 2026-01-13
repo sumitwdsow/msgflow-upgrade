@@ -497,7 +497,7 @@ const Hero = () => {
 
               {/* Floating Stats Cards */}
               <motion.div 
-                className="absolute -bottom-4 -left-8 bg-white rounded-xl p-3 shadow-xl z-10"
+                className="absolute bottom-4 left-4 bg-white rounded-xl p-3 shadow-xl z-10"
                 initial={{ scale: 0, rotate: -20 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", delay: 2 }}
@@ -515,7 +515,7 @@ const Hero = () => {
               </motion.div>
 
               <motion.div 
-                className="absolute -top-2 -right-8 bg-white rounded-xl p-3 shadow-xl z-10"
+                className="absolute top-4 right-4 bg-white rounded-xl p-3 shadow-xl z-10"
                 initial={{ scale: 0, rotate: 20 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", delay: 2.3 }}
@@ -534,7 +534,7 @@ const Hero = () => {
 
               {/* Notification Popup */}
               <motion.div 
-                className="absolute top-20 -left-12 bg-white rounded-xl p-3 shadow-xl z-10 max-w-[180px]"
+                className="absolute top-24 left-4 bg-white rounded-xl p-3 shadow-xl z-10 max-w-[180px]"
                 initial={{ opacity: 0, x: -20, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ delay: 3.5 }}
