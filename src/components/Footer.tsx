@@ -168,7 +168,7 @@ const Footer = () => {
               <img 
                 src={metaPartnerLogo} 
                 alt="Official Meta Business Partner" 
-                className="h-14 w-auto object-contain"
+                className="h-14 w-auto object-contain brightness-0 invert"
               />
             </motion.div>
           </div>
