@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageSquare, Mail, Lock, ArrowRight, Eye, EyeOff, Shield, Zap, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import metaPartnerLogo from "@/assets/meta-partner.avif";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +41,7 @@ const Login = () => {
           className="w-full max-w-md relative z-10"
         >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 mb-8 group">
+          <Link to="/" className="flex items-center gap-3 mb-8 group">
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg"
@@ -51,9 +52,11 @@ const Login = () => {
               <span className="font-display font-bold text-xl text-foreground">
                 MsgFlow
               </span>
-              <span className="block text-xs text-muted-foreground">
-                Meta Business Partner
-              </span>
+              <img 
+                src={metaPartnerLogo} 
+                alt="Official Meta Business Partner" 
+                className="h-5 w-auto object-contain mt-1"
+              />
             </div>
           </Link>
 

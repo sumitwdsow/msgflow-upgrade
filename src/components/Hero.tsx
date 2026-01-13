@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, BarChart3, CheckCircle, Play, MessageSquare, Send, Users } from "lucide-react";
+import metaPartnerLogo from "@/assets/meta-partner.avif";
 
 const Hero = () => {
   const [messageCount, setMessageCount] = useState(0);
@@ -130,29 +131,13 @@ const Hero = () => {
             {/* Badge */}
             <motion.div 
               variants={itemVariants}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
+              className="inline-flex items-center mb-6"
             >
-              {/* Meta Infinity Logo */}
-              <div className="bg-white rounded-full p-1.5 flex items-center justify-center">
-                <svg 
-                  viewBox="0 0 100 100" 
-                  className="w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <defs>
-                    <linearGradient id="metaGradientHero" x1="0%" y1="50%" x2="100%" y2="50%">
-                      <stop offset="0%" stopColor="#0064E0" />
-                      <stop offset="50%" stopColor="#0064E0" />
-                      <stop offset="100%" stopColor="#0AC7F5" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M22.3 66.8c-5.1-7-8.4-15.4-8.4-22.6 0-11.3 5.9-19 14.4-19 5.6 0 10.4 3.8 15.3 11.2l3.4 5.2 3.4-5.2c4.9-7.4 9.7-11.2 15.3-11.2 8.5 0 14.4 7.7 14.4 19 0 7.2-3.3 15.6-8.4 22.6-5.7 7.8-13.1 13.6-21.3 13.6-8.2 0-15.6-5.8-21.3-13.6h-6.8zm24.7-8.4c3.3 5.1 6.3 8 10 8 5.2 0 10.2-4.5 14.3-10.1 3.8-5.2 6.2-11.2 6.2-16.1 0-6.6-3.1-10.8-7.8-10.8-3.7 0-6.7 2.9-10 8l-6.3 9.5-6.4-9.5c-3.3-5.1-6.3-8-10-8-4.7 0-7.8 4.2-7.8 10.8 0 4.9 2.4 10.9 6.2 16.1 4.1 5.6 9.1 10.1 14.3 10.1 3.7 0 6.7-2.9 10-8l-6.4-9.5-6.3 9.5z"
-                    fill="url(#metaGradientHero)"
-                  />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-white">Official Meta Business Partner</span>
+              <img 
+                src={metaPartnerLogo} 
+                alt="Official Meta Business Partner" 
+                className="h-10 w-auto object-contain"
+              />
             </motion.div>
 
             {/* Heading with Letter Animation */}
