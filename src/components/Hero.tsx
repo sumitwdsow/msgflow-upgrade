@@ -132,22 +132,22 @@ const Hero = () => {
               variants={itemVariants}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
             >
-              {/* Meta Logo */}
-              <div className="bg-white rounded-full p-1.5">
+              {/* Meta Infinity Logo */}
+              <div className="bg-white rounded-full p-1.5 flex items-center justify-center">
                 <svg 
-                  viewBox="0 0 512 512" 
+                  viewBox="0 0 100 100" 
                   className="w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    <linearGradient id="metaGradientHero" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <linearGradient id="metaGradientHero" x1="0%" y1="50%" x2="100%" y2="50%">
                       <stop offset="0%" stopColor="#0064E0" />
                       <stop offset="50%" stopColor="#0064E0" />
                       <stop offset="100%" stopColor="#0AC7F5" />
                     </linearGradient>
                   </defs>
                   <path
-                    d="M120 202c0-42 12-80 33-108 26-36 66-55 110-55 35 0 67 14 91 39 7 7 13 15 19 24 6-9 12-17 19-24 24-25 56-39 91-39 44 0 84 19 110 55 21 28 33 66 33 108 0 41-12 79-32 107-27 37-67 57-111 57-35 0-67-14-91-39-7-8-14-16-20-25-6 9-13 17-20 25-24 25-56 39-91 39-44 0-84-20-111-57-20-28-32-66-32-107h2zm143-107c-30 0-57 14-75 38-15 21-24 49-24 69 0 19 9 48 24 69 18 24 45 38 75 38 25 0 48-10 65-28 4-5 8-10 12-15 9-14 15-29 17-44 1-4 1-8 1-12v-15c0-4 0-8-1-12-2-16-8-30-17-44-4-5-8-10-12-15-17-18-40-28-65-28zm230 0c-25 0-48 10-65 28-4 5-8 10-12 15-9 14-15 29-17 44-1 4-1 8-1 12v15c0 4 0 8 1 12 2 16 8 30 17 44 4 5 8 10 12 15 17 18 40 28 65 28 30 0 57-14 75-38 15-21 24-49 24-69 0-19-9-48-24-69-18-24-45-38-75-38z"
+                    d="M22.3 66.8c-5.1-7-8.4-15.4-8.4-22.6 0-11.3 5.9-19 14.4-19 5.6 0 10.4 3.8 15.3 11.2l3.4 5.2 3.4-5.2c4.9-7.4 9.7-11.2 15.3-11.2 8.5 0 14.4 7.7 14.4 19 0 7.2-3.3 15.6-8.4 22.6-5.7 7.8-13.1 13.6-21.3 13.6-8.2 0-15.6-5.8-21.3-13.6h-6.8zm24.7-8.4c3.3 5.1 6.3 8 10 8 5.2 0 10.2-4.5 14.3-10.1 3.8-5.2 6.2-11.2 6.2-16.1 0-6.6-3.1-10.8-7.8-10.8-3.7 0-6.7 2.9-10 8l-6.3 9.5-6.4-9.5c-3.3-5.1-6.3-8-10-8-4.7 0-7.8 4.2-7.8 10.8 0 4.9 2.4 10.9 6.2 16.1 4.1 5.6 9.1 10.1 14.3 10.1 3.7 0 6.7-2.9 10-8l-6.4-9.5-6.3 9.5z"
                     fill="url(#metaGradientHero)"
                   />
                 </svg>
@@ -209,7 +209,7 @@ const Hero = () => {
                 >
                   <a href="https://msgflow.in/register" target="_blank" rel="noopener noreferrer">
                     <span className="relative z-10 flex items-center">
-                      Get Started Free
+                      Sign Up Now
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <motion.div
@@ -546,29 +546,6 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Notification Popup */}
-              <motion.div 
-                className="absolute top-24 left-4 bg-white rounded-xl p-3 shadow-xl z-10 max-w-[180px]"
-                initial={{ opacity: 0, x: -20, scale: 0.8 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ delay: 3.5 }}
-              >
-                <div className="flex items-start gap-2">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xs">M</span>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-xs font-semibold text-foreground">MsgFlow</span>
-                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" fill="#00A3FF"/>
-                        <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <p className="text-[10px] text-muted-foreground mt-0.5">Campaign delivered! ✓✓</p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
