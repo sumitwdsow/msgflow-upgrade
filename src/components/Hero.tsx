@@ -130,15 +130,29 @@ const Hero = () => {
             {/* Badge */}
             <motion.div 
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
             >
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              >
-                <CheckCircle className="w-4 h-4 text-primary" />
-              </motion.div>
-              <span className="text-sm font-medium text-primary">Official Meta Business Partner</span>
+              {/* Meta Logo */}
+              <div className="bg-white rounded-full p-1.5">
+                <svg 
+                  viewBox="0 0 512 512" 
+                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="metaGradientHero" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0064E0" />
+                      <stop offset="50%" stopColor="#0064E0" />
+                      <stop offset="100%" stopColor="#0AC7F5" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M120 202c0-42 12-80 33-108 26-36 66-55 110-55 35 0 67 14 91 39 7 7 13 15 19 24 6-9 12-17 19-24 24-25 56-39 91-39 44 0 84 19 110 55 21 28 33 66 33 108 0 41-12 79-32 107-27 37-67 57-111 57-35 0-67-14-91-39-7-8-14-16-20-25-6 9-13 17-20 25-24 25-56 39-91 39-44 0-84-20-111-57-20-28-32-66-32-107h2zm143-107c-30 0-57 14-75 38-15 21-24 49-24 69 0 19 9 48 24 69 18 24 45 38 75 38 25 0 48-10 65-28 4-5 8-10 12-15 9-14 15-29 17-44 1-4 1-8 1-12v-15c0-4 0-8-1-12-2-16-8-30-17-44-4-5-8-10-12-15-17-18-40-28-65-28zm230 0c-25 0-48 10-65 28-4 5-8 10-12 15-9 14-15 29-17 44-1 4-1 8-1 12v15c0 4 0 8 1 12 2 16 8 30 17 44 4 5 8 10 12 15 17 18 40 28 65 28 30 0 57-14 75-38 15-21 24-49 24-69 0-19-9-48-24-69-18-24-45-38-75-38z"
+                    fill="url(#metaGradientHero)"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm font-medium text-white">Official Meta Business Partner</span>
             </motion.div>
 
             {/* Heading with Letter Animation */}
