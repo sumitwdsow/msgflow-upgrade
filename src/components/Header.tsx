@@ -109,7 +109,7 @@ const Header = () => {
               asChild
             >
               <Link to="/signup">
-                Start Free Trial
+                Sign Up
                 <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -169,7 +169,7 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                   </Button>
                   <Button className="h-12 bg-gradient-to-r from-primary to-accent text-white rounded-xl" asChild>
-                    <Link to="/signup">Start Free Trial</Link>
+                    <Link to="/signup">Sign Up</Link>
                   </Button>
                 </div>
               </nav>
