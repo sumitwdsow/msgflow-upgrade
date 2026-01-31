@@ -26,6 +26,7 @@ import Documentation from "./pages/Documentation";
 import Changelog from "./pages/Changelog";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import WhatsAppQRGenerator from "./pages/WhatsAppQRGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -60,6 +61,8 @@ const App = () => (
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/whatsapp-qr-generator" element={<WhatsAppQRGenerator />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
